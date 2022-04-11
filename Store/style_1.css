@@ -1,0 +1,114 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+body{
+    background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.4)),url(images/tea-time-3240766_960_720.webp);
+    font-family: sans-serif;
+    display: flex;
+    justify-content: left;
+    background-size: cover;
+        background-position: center;
+
+    margin-left: 200px;
+    align-items: center;
+    height: 100vh;
+}
+.container{
+    background-color:  #fff;
+    border-radius: 5px;
+    box-shadow: 10px 20px 25px rgba(0,0, 0, 0.3);
+    overflow: hidden;
+    overflow: 100%;
+    width: 400px;
+}
+.header{
+     border-bottom: 1px solid #f0f0f0;
+     border-color: #f7f7f7;
+     padding: 20px 40px;
+}
+.header h2{
+    margin: 0;
+    text-align: center;
+}
+.form{
+    padding: 30px 40px ;
+}
+.form-group{
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    position: relative;  
+}
+.form-group label{
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.form-group input{
+    border:2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-size:14px ;
+    padding: 10px;
+    width: 100%;
+}
+.form-group input:focus{ 
+    outline: none;
+    border-color: #777 ;
+}
+.form-group.success input{
+    border-color: lightgreen;
+}
+.form-group.error input{
+    border-color: red;
+}
+
+.form-group i{
+    visibility: hidden;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+}
+.form-group.success i.ion-ios-checkmark{
+    color: lightgreen;
+    visibility: visible;
+}
+.form-group.error i.ion-android-alert{
+    color: red;
+    visibility: visible;
+}
+.form-group small{
+    position: absolute;
+    color: red;
+    left: o;
+    right: 0;
+    visibility: hidden;
+}
+ #button{
+    background-color: #3BAF9F;
+    border: none;
+    color: #fff;
+    display: block;
+    border:2px solid #366473;
+    font-size: 16px;
+    width: 100%;
+    transition:0.25px;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+#button:hover{
+    background-color:#5390F5;
+ }  
+ .form p{
+     margin:15px 70px 0px;
+     color:black;
+     font-size: 14px;
+ }
+ .form  a{
+     color: green;
+     text-decoration: none;
+     margin-left: 10px;
+ }
+ 
