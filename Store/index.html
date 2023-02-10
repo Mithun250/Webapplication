@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <title>Form Validation</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Registration Form</h2>
+        </div>
+        <form class="form" id="form">
+            <div class="form-group">
+                <label >UserName </label>
+                <input type="text" placeholder="Username" id = "username" autocomplete="off" maxlength="20">
+                <i class="ion-ios-checkmark"></i>
+                <i class="ion-android-alert"></i>
+               <small>Error</small>
+            </div>
+            <div class="form-group">
+                <label >Email </label>
+                <input type="email" placeholder="Email" id = "email" autocomplete="off">
+                <i class="ion-ios-checkmark"></i>
+                <i class="ion-android-alert"></i>
+            
+                <small>Error</small>
+            </div>
+            <div class="form-group">
+                <label >Date of birth </label>
+                <input type="date"id = "dob">
+                <i class="ion-android-alert"></i>
+            
+                <small>Error</small>
+            </div>
+           
+            <div class="form-group">
+                <label>Password  </label>
+                <input type="password" placeholder="Password" id = "password" autocomplete="off">
+                <i class="ion-ios-checkmark"></i>
+                <i class="ion-android-alert"></i>
+                
+                <small>Error</small>
+            </div>
+            <div class="form-group">
+                <label >Confirm Password </label>
+                <input type="password" placeholder="Confirm Password" id = "password2" autocomplete="off">
+                <i class="ion-ios-checkmark"></i>
+                <i class="ion-android-alert"></i>
+                
+                <small>Error</small>
+            </div>
+            <button >Sign Up</button>
+            <p>Already Registerd ?<a   href="index_1.html">Login</a></p>
+        </form>
+    </div>
+
+    <script>
+        const form =document.getElementById("form");
+        const username =document.getElementById("username");
+        const email =document.getElementById("email");
+        const dob =document.getElementById("dob");
+        const password =document.getElementById("password");
+        const password2 =document.getElementById("password2");
+
+form.addEventListener('submit',e=>{ 
+
+    e.preventDefault(); 
+    checkInput(); 
+});
+
+function checkInput(){
+    const usernameValue =username.value.trim(); 
+    const emailValue =email.value.trim();
+    const dobValue =dob.value.trim();
+    const passwordValue =password.value.trim();
+    const password2Value =password2.value.trim();
+
+    if(usernameValue === ''){
+        setError(username,'Username Cannot Be Blank');
+    }
+    else if(!isname(usernameValue))
+    {
+        setError(username,'Not an valid Username');
+    }
+    else{
+        setSuccess(username);
+    }
+    if(emailValue === ''){
+        setError(email,'Email Cannot be Blank');
+    }
+    else if(!isEmail(emailValue))
+    {
+        setError(email,'Not an Valid Email')
+    } 
+    else{
+        setSuccess(email)
+    }
+    if(dobValue === ''){
+        setError(dob,'Username Cannot Be Blank');
+    }
+    else{
+        setSuccess(dob);
+    }
+
+     if(passwordValue === ''){
+         setError(password,'Password Cannot Be Blank');
+     }
+     else{
+         setSuccess(password);
+     }
+     
+     if(password2Value === ''){
+        setError(password2,'Password Cannot Be Blank');
+    }
+    else if(passwordValue!=password2Value){
+        setError(password2,'Password Does not Match');
+    
+    }
+    else{
+        setSuccess(password2);
+    }
+}
+
+    function setError(input,message){
+        const formgroup=input.parentElement; 
+        const small=formgroup.querySelector('small'); 
+        formgroup.className='form-group error'; 
+        small.innerText=message; 
+    }
+
+    function setSuccess(input){
+        const formgroup=input.parentElement;
+        formgroup.className='form-group success';
+
+    }
+
+    function isname (username){
+       return /^[A-Za-z]{4,}$/.test(username) && !(/(.)\1\1+/.test(username));
+    }
+
+   
+   function isEmail(email){
+         return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+     }
+
+   
+    </script>
+    
+</body>
+</html>
